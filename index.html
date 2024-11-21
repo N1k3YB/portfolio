@@ -367,7 +367,7 @@
             </div>
         </section>
 
-        <section class="skills" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <section class="skills" data-aos="fade-up">
             <h2>Working with</h2>
             <div class="skills-grid">
                 <div class="skill-card">GPT-2 model</div>
@@ -376,7 +376,7 @@
             </div>
         </section>
 
-        <section class="projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+        <section class="projects" data-aos="fade-up">
             <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-card" onclick="showModal('project1')">
@@ -403,7 +403,7 @@
             </div>
         </section>
 
-        <section class="awards" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <section class="awards" data-aos="fade-up" >
             <h2>Awards</h2>
             <div class="award-grid">
                 <div class="award-card" onclick="showModal('award1')">
@@ -414,7 +414,7 @@
             </div>
         </section>
 
-        <section class="testimonials" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <section class="testimonials" data-aos="fade-up">
             <h2>Reviews</h2>
             <div class="testimonial-container">
                 <div class="testimonial-card">
@@ -462,16 +462,7 @@
     <script>
         AOS.init({
             duration: 1000, 
-            once: true 
-        });
-        gsap.from('.about', {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '.about',
-                start: 'top center'
-            }
+            once: false 
         });
 
         function showModal(id) {
