@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N1k3Y</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        :root {
+            --primary-green: #00ff9d;
+            --dark-green: #005c3b;
+            --black: #000000;
+            --text-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, var(--black), var(--dark-green));
+            color: var(--text-color);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+
+        /* Main Content */
+        main {
+            padding-top: 15vh;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            padding-left: 30%;
+            padding-right: 20%;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--primary-green);
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .social-links-profile {
+            display: flex;
+            justify-content: start;
+            padding-top: 10px;
+
+        }
+        .link-logos{
+            max-width: 70px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .about {
+                padding-left: 10px;
+                padding-right: 10px;
+                display: grid;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                justify-self: center;
+            }
+            
+            .social-links-profile{
+                justify-content: center;
+            }
+            .link-logos{
+                max-width: 50px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 255, 157, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--primary-green);
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skills-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            padding-bottom: 1%;
+            border-radius: 10px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 0 30px rgba(5, 95, 61, 0.3);
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            padding-bottom: 1%;
+            border-radius: 15px;
+        }
+
+        /* Awards Section */
+        .awards {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: rgba(0, 255, 157, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(3, 88, 56, 0.493);
+        }
+
+        .award-card:hover {
+            background: rgba(0, 255, 157, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            text-align: start;
+        }
+
+        /* Responsive media query for tablets and mobile devices */
+        @media screen and (max-width: 768px) {
+            .testimonial-container {
+                display: grid;
+                gap: 2rem;
+                overflow-x: auto;
+                padding: 2rem 0;
+                text-align: start;
+            }
+        }
+
+        .testimonial-card {
+            min-width: 300px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--primary-green);
+            max-width: 300px;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+            margin: 5vh auto;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+        
+
+        .modal-content {
+            background: rgba(0, 255, 157, 0.3);
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.4);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--primary-green);
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="logo-text">Leafage</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="about" data-aos="fade-up" data-aos-duration="1000">
+            <img src="profile.jpg" alt="Profile" class="profile-image">
+            <div class="about-content">
+                <h1>Hi, I'm <span style="color: var(--primary-green)">Levanyuk Nikita</span></h1>
+                <p>I work with neural networks, big data, and simple but useful applications</p>   
+                <p>The experience is calculated by walking couples in the KCPT</p> 
+                <h2>Not a Leafage CEO</h2>            
+                <div class="social-links-profile">
+                    <a href="https://github.com/N1k3YB" target="_blank" class="social-link"><img src="ghlogo.png" class="link-logos"></a>
+                    <a href="https://vk.com/n1k3y" target="_blank" class="social-link"><img src="vklogo.png" class="link-logos"></a>
+                    <a href="https://t.me/n1k3y" target="_blank" class="social-link"><img src="tglogo.png" class="link-logos"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <h2>Working with</h2>
+            <div class="skills-grid">
+                <div class="skill-card">GPT-2 model</div>
+                <div class="skill-card">Gemini API</div>
+                <div class="skill-card">Suno music model</div>
+            </div>
+        </section>
+
+        <section class="projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" onclick="showModal('project1')">
+                    <img src="kcptAlogo.jpeg" alt="Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3>KCPTAssistAnt</h3>
+                        <p>A telegram bot designed to optimize the search for information about the college</p>
+                    </div>
+                </div>
+                <div class="project-card" onclick="showModal('project2')">
+                    <img src="leafageGPTlogo.jpeg" alt="Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3>LeafageGPT</h3>
+                        <p>Leafage's own neuro-network model for dialogs</p>
+                    </div>
+                </div>
+                <div class="project-card" onclick="showModal('project3')">
+                    <img src="antonskylogo.jpeg" alt="Project 3" class="project-image">
+                    <div class="project-info">
+                        <h3>AntonskyVD</h3>
+                        <p>Leafage's own neuro-network model for make pictures</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="awards" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <h2>Awards</h2>
+            <div class="award-grid">
+                <div class="award-card" onclick="showModal('award1')">
+                    <h3>Professionals Tyumen' region</h3>
+                    <p>2024</p>
+                    <p>2nd place</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <h2>Reviews</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="keks.jpg" alt="Avatar" class="testimonial-avatar">
+                        <div>
+                            <h3>k3ksoff</h3>
+                            <p>Leafage CEO</p>
+                        </div>
+                    </div>
+                    <p>"An excellent specialist, performs all tasks on time and efficiently!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="chijik.jpg" alt="Avatar" class="testimonial-avatar">
+                        <div>
+                            <h3>IR4jeck_ru</h3>
+                            <p>Leafage CEO</p>
+                        </div>
+                    </div>
+                    <p>"Professional in his work field, I recommend!"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h1></h1>
+        <div class="social-links">
+            <a href="https://github.com/N1k3YB" target="_blank" class="social-link">GitHub</a>
+            <a href="https://vk.com/n1k3y" target="_blank" class="social-link">VK</a>
+            <a href="https://t.me/n1k3y" target="_blank" class="social-link">Telegram</a>
+        </div>
+        <p>Copyright © 2024 Leafage</p>
+        <p>All rights reserved</p>
+    </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({
+            duration: 1000, 
+            once: true 
+        });
+        gsap.from('.about', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.about',
+                start: 'top center'
+            }
+        });
+
+        function showModal(id) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            
+            const modalContent = {
+                project1: {
+                    img: 'kcptA.png',
+                    title: 'KCPTAssistAnt Telegram-Bot',
+                    description: 'A digital platform for the College of Digital and Pedagogical Technologies in Tyumen, featuring a simplified information search for applicants, a student personal account system with authorization, and a chatbot powered by LeafageGPT.'
+                },
+                project2: {
+                    img: 'leafageGPT.png',
+                    title: 'LeafageGPT',
+                    description: 'LeafageGPT is a conversational chatbot model based on GPT-2, designed to deliver natural and context-aware interactions. Tailored for diverse use cases, it excels in personalized responses, adaptive learning, and seamless communication, making it ideal for educational, customer service, and virtual assistant applications.'
+                },
+                project3: {
+                    img: 'antonsky.jpg',
+                    title: 'AntonskyVD',
+                    description: 'Antonsky Visual Designer is a universal AI tool for creating, improving and editing images, combining image generation based on a text description, increasing the resolution of photos without loss of quality and automatic background removal in one intuitive process.'
+                },
+                award1: {
+                    img: 'pro2024.png',
+                    title: 'Proffessionals Tyumen region',
+                    description: 'I took the second place in the regional championship "Professionals" in the field of "Big data and neural networks"'
+                }
+            };
+
+            content.innerHTML = `
+                <img src="${modalContent[id].img}" alt="Modal Image">
+                <h2>${modalContent[id].title}</h2>
+                <p>${modalContent[id].description}</p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
