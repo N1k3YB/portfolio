@@ -138,49 +138,19 @@
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(1px);
             border: 1px solid #00ff00;
-            padding: 2rem;
+            padding: 1.2rem;
             border-radius: 10px;
             transition: all 0.3s;
             text-align: center;
             color: #00ff00;
+            font-weight: bold;
+            font-size: 1.5rem;;
         }
 
         .skill-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
-        }
-
-        /* Projects section */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .project-card {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(1px);
-            border: 1px solid #00ff00;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s;
             cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 1.5rem;
         }
 
         /* Awards section */
@@ -471,7 +441,8 @@
 
         /* Roadmap styles */
         .roadmap {
-            padding: 4rem 2rem;
+            padding: 1.2rem;
+            z-index: 1999;
         }
 
         .roadmap h2 {
@@ -482,7 +453,7 @@
 
         .roadmap-container {
             display: flex;
-            gap: 2rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -492,18 +463,18 @@
             backdrop-filter: blur(1px);
             border: 1px solid #00ff00;
             border-radius: 10px;
-            padding: 1rem;
+            padding: 1.2rem;
+            font-size: 1.5rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
-            width: 200px;
-            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #e0e0e0;
+            color: #00ff00;
+            width: 300px;
         }
 
         .roadmap-item:hover {
@@ -518,16 +489,15 @@
         .roadmap-hover-content {
             display: none;
             position: absolute;
-            top: -300px; /* Располагаем сверху от элемента */
+            top: 100px; /* Располагаем сверху от элемента */
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.9);
             border: 1px solid #00ff00;
             border-radius: 10px;
             padding: 1rem;
-            z-index: 1;
-            width: 300px;
-            height: 300px;
+            width: 500px;
+            height: 500px;
             text-align: left;
         }
 
@@ -538,7 +508,8 @@
         }
 
         .roadmap-hover-content p {
-            font-size: 0.9rem;
+            font-size: 1.5rem;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -653,7 +624,7 @@
             <a href="https://vk.com/n1k3y" target="_blank" class="social-link">VK</a>
             <a href="https://t.me/n1k3y" target="_blank" class="social-link">Telegram</a>
         </div>
-        <p>© 2024 Leafage</p>
+        <p>© 2025 Leafage</p>
         <p>Все права защищены</p>
     </footer>
 
