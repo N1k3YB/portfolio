@@ -518,7 +518,7 @@
         .roadmap-hover-content {
             display: none;
             position: absolute;
-            top: -150px; /* Располагаем сверху от элемента */
+            top: -300px; /* Располагаем сверху от элемента */
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.9);
@@ -527,6 +527,7 @@
             padding: 1rem;
             z-index: 1;
             width: 300px;
+            height: 300px;
             text-align: left;
         }
 
@@ -546,21 +547,21 @@
 
     <header>
         <div class="logo-container">
-            <img src="../static/logo.png" alt="Logo" class="logo">
+            <img src="./static/logo.png" alt="Logo" class="logo">
             <span class="logo-text">Leafage</span>
         </div>
     </header>
 
     <main>
         <section class="about" data-aos="fade-up" data-aos-duration="1000">
-            <img src="../static/profile.jpg" alt="Профиль" class="profile-image">
+            <img src="./static/profile.jpg" alt="Профиль" class="profile-image">
             <div class="about-content">
                 <h1>Привет, я <span style="color: var(--primary-green)">Леванюк Никита</span></h1>
                 <p>Я работаю с нейросетями, большими данными и простыми, но полезными приложениями</p>
                 <div class="social-links-profile">
-                    <a href="https://github.com/N1k3YB" target="_blank" class="social-link"><img src="../static/ghlogo.png" class="link-logos"></a>
-                    <a href="https://vk.com/n1k3y" target="_blank" class="social-link"><img src="../static/vklogo.png" class="link-logos"></a>
-                    <a href="https://t.me/n1k3y" target="_blank" class="social-link"><img src="../static/tglogo.png" class="link-logos"></a>
+                    <a href="https://github.com/N1k3YB" target="_blank" class="social-link"><img src="./static/ghlogo.png" class="link-logos"></a>
+                    <a href="https://vk.com/n1k3y" target="_blank" class="social-link"><img src="./static/vklogo.png" class="link-logos"></a>
+                    <a href="https://t.me/n1k3y" target="_blank" class="social-link"><img src="./static/tglogo.png" class="link-logos"></a>
                 </div>
             </div>
         </section>
@@ -580,28 +581,28 @@
                 <div class="roadmap-item" onclick="showModal('project1')">
                     KCPTAssistAnt
                     <div class="roadmap-hover-content">
-                        <img src="../static/kcptAlogo.jpeg" alt="Проект A">
+                        <img src="./static/kcptAlogo.jpeg" alt="Проект A">
                         <p>Телеграм-бот, разработанный для оптимизации поиска информации о колледже</p>
                     </div>
                 </div>
                 <div class="roadmap-item" onclick="showModal('project2')">
                     LeafageGPT
                     <div class="roadmap-hover-content">
-                        <img src="../static/leafageGPTlogo.jpeg" alt="Проект B">
+                        <img src="./static/leafageGPTlogo.jpeg" alt="Проект B">
                         <p>Собственная нейросетевая модель Leafage с поддержкой конструктивных диалогов</p>
                     </div>
                 </div>
                 <div class="roadmap-item" onclick="showModal('project3')">
                     AntonskyVD
                     <div class="roadmap-hover-content">
-                        <img src="../static/antonskylogo.jpeg" alt="Проект C">
+                        <img src="./static/antonskylogo.jpeg" alt="Проект C">
                         <p>Приложение, разработанное Leafage, включающее в себя множество API для обработки и создания изображений</p>
                     </div>
                 </div>
                 <div class="roadmap-item" onclick="showModal('project4')">
                     Сайт LeafageGPT
                     <div class="roadmap-hover-content">
-                        <img src="../static/leafageGPTsite.png" alt="Проект D">
+                        <img src="./static/leafageGPTsite.png" alt="Проект D">
                         <p>Созданный за кратчайшие сроки сайт для показа возможностей LeafageGPT</p>
                     </div>
                 </div>
@@ -624,7 +625,7 @@
             <div class="testimonial-container">
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="testimonial-header">
-                        <img src="../static/keks.jpg" alt="Аватар" class="testimonial-avatar">
+                        <img src="./static/keks.jpg" alt="Аватар" class="testimonial-avatar">
                         <div>
                             <h3>k3ksoff</h3>
                             <p>CEO Leafage</p>
@@ -634,7 +635,7 @@
                 </div>
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-header">
-                        <img src="../static/chijik.jpg" alt="Аватар" class="testimonial-avatar">
+                        <img src="./static/chijik.jpg" alt="Аватар" class="testimonial-avatar">
                         <div>
                             <h3>IR4jeck_ru</h3>
                             <p>CEO Leafage</p>
@@ -672,7 +673,7 @@
 
         const modalContent = {
             project1: {
-                img: '../static/kcptA.png',
+                img: './static/kcptA.png',
                 title: 'KCPTAssistAnt Telegram-Бот',
                 description: `<div>
                                 <h3>Телеграм бот, разработанный специально для Колледжа цифровых и педагогических технологий в Тюмени.</h3>
@@ -686,7 +687,7 @@
                             </div>`
             },
             project2: {
-                img: '../static/leafageGPT.png',
+                img: './static/leafageGPT.png',
                 description: `<div>
                                 <h3>LeafageGPT - это инновационная модель разговорного чат-бота на базе GPT-2.</h3>
                                 <ul>Ключевые особенности:
@@ -700,7 +701,7 @@
                             </div>`
             },
             project3: {
-                img: '../static/antonsky.jpg',
+                img: './static/antonsky.jpg',
                 description: `<div>
                                 <h3>Antonsky Visual Designer - универсальный ИИ-инструмент для работы с изображениями.</h3>
                                 <ul>Возможности:
@@ -714,7 +715,7 @@
                             </div>`
             },
             project4: {
-                img: '../static/leafagegptSite.png',
+                img: './static/leafagegptSite.png',
                 description: `<div>
                                 <h3>Современный веб-сайт для демонстрации возможностей LeafageGPT.</h3>
                                 <ul>Особенности:
@@ -724,7 +725,7 @@
                             </div>`
             },
             award1: {
-                img: '../static/pro2024.png',
+                img: './static/pro2024.png',
                 description: `<div>
                                 <h3>Достижение в региональном чемпионате "Профессионалы":</h3>
                                 <ul>
