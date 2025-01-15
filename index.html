@@ -6,511 +6,1130 @@
     <title>N1k3Y</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link rel="icon" href="logo.png">
     <style>
-        :root {
-            --primary-green: #00ff9d;
-            --dark-green: #005c3b;
-            --black: #000000;
-            --text-color: #ffffff;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background: linear-gradient(45deg, var(--black), var(--dark-green));
-            color: var(--text-color);
+            background: linear-gradient(135deg, #000000, #003300);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header Styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border-radius: 4px;
+        }
+
+        ul li {
+            list-style: none;
+            padding-left: 25px;
+        }
+        /* Header styles */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1rem 2rem;
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             z-index: 1000;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.1);
         }
 
         .logo-container {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 1rem;
         }
 
-        .logo-container img {
+        .logo {
             height: 40px;
+            filter: drop-shadow(0 0 10px #00ff00);
         }
 
         .logo-text {
             font-size: 2rem;
-            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            background: linear-gradient(90deg, #00ff00, #00ffff);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
         }
 
-
-
-        /* Main Content */
+        /* Main content */
         main {
-            padding-top: 15vh;
+            padding-top: 80px;
         }
 
-        /* About Section */
+        section {
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        /* About section */
         .about {
             display: flex;
             align-items: center;
-            padding-left: 30%;
-            padding-right: 20%;
-            gap: 2rem;
+            gap: 3rem;
+            padding: 4rem 2rem;
             justify-content: center;
         }
 
         .profile-image {
             width: 300px;
             height: 300px;
-            border-radius: 20px;
+            border-radius: 15px;
+            border: 2px solid #00ff00;
             object-fit: cover;
-            border: 3px solid var(--primary-green);
-            animation: float 6s ease-in-out infinite;
-            box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+        }
+
+        .profile-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 255, 0, 0.3);
+        }
+
+        .about-content {
+            max-width: 600px;
         }
 
         .social-links-profile {
             display: flex;
-            justify-content: start;
-            padding-top: 10px;
-
-        }
-        .link-logos{
-            max-width: 70px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .about {
-                padding-left: 10px;
-                padding-right: 10px;
-                display: grid;
-                text-align: center;
-            }
-
-            .profile-image {
-                width: 200px;
-                height: 200px;
-                justify-self: center;
-            }
-            
-            .social-links-profile{
-                justify-content: center;
-            }
-            .link-logos{
-                max-width: 50px;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .about-content {
-            flex: 1;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .skill-card {
-            background: rgba(0, 255, 157, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid var(--primary-green);
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+        .link-logos {
+            width: 40px;
+            transition: all 0.3s;
+            filter: brightness(0.8) drop-shadow(0 0 5px #00ff00);
         }
 
-        .skill-card:hover {
+        .link-logos:hover {
+            filter: brightness(1) drop-shadow(0 0 15px #00ff00);
             transform: translateY(-5px);
         }
 
-        .skills-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            padding-bottom: 1%;
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+            border: 1px solid #00ff00;
+            padding: 2rem;
             border-radius: 10px;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 4rem 2rem;
+            transition: all 0.3s;
             text-align: center;
+            color: #00ff00;
         }
 
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Projects section */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            padding: 2rem;
         }
 
         .project-card {
             background: rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
+            backdrop-filter: blur(1px);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
             overflow: hidden;
+            transition: all 0.3s;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            text-align: center;
-            padding: 1rem;
-            box-shadow: 0 0 30px rgba(5, 95, 61, 0.3);
         }
 
         .project-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
         }
 
         .project-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            padding-bottom: 1%;
-            border-radius: 15px;
         }
 
-        /* Awards Section */
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        /* Awards section */
         .awards {
+            position: relative;
             padding: 4rem 2rem;
-            text-align: center;
         }
 
         .award-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .award-grid::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                transparent,
+                #00ff00,
+                #00ff00,
+                transparent
+            );
         }
 
         .award-card {
-            background: rgba(0, 255, 157, 0.1);
+            width: calc(50% - 30px);
+            margin: 2rem 0;
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+            border: 1px solid #00ff00;
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(3, 88, 56, 0.493);
+        }
+
+        .award-card:nth-child(odd) {
+            margin-right: auto;
+        }
+
+        .award-card:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #00ff00;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .award-card:nth-child(odd)::before {
+            right: -40px;
+        }
+
+        .award-card:nth-child(even)::before {
+            left: -40px;
+        }
+
+        .award-card::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: #00ff00;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .award-card:nth-child(odd)::after {
+            right: -20px;
+        }
+
+        .award-card:nth-child(even)::after {
+            left: -20px;
         }
 
         .award-card:hover {
-            background: rgba(0, 255, 157, 0.2);
-            transform: translateY(-5px);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 4rem 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        /* Testimonials section */
         .testimonial-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            overflow-x: auto;
-            padding: 2rem 0;
-            text-align: start;
-        }
-
-        /* Responsive media query for tablets and mobile devices */
-        @media screen and (max-width: 768px) {
-            .testimonial-container {
-                display: grid;
-                gap: 2rem;
-                overflow-x: auto;
-                padding: 2rem 0;
-                text-align: start;
-            }
+            padding: 2rem;
         }
 
         .testimonial-card {
-            min-width: 300px;
             background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+            border: 1px solid #00ff00;
             padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid var(--primary-green);
-            max-width: 300px;
+            border-radius: 10px;
+            transition: all 0.3s;
         }
 
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
         }
 
         .testimonial-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            object-fit: cover;
+            border: 2px solid #00ff00;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
             background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
+            padding: 3rem;
             text-align: center;
+            border-top: 1px solid #00ff00;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 1rem;
+            margin: 2rem 0;
         }
 
         .social-link {
-            color: var(--primary-green);
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
+            color: #00ff00;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
         }
 
         .social-link:hover {
-            transform: translateY(-5px);
+            text-shadow: 0 0 10px #00ff00;
         }
 
         /* Modal */
         .modal {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(5px);
             z-index: 2000;
+            display: none; /* Скрываем модальное окно по умолчанию */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: rgba(0, 0, 0, 0.9);
             padding: 2rem;
-            overflow-y: auto;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            animation: modalFade 0.3s;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.2);
+            color: #e0e0e0;
+            border-radius: 25px;
         }
 
         .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            display: block;
-            margin: 5vh auto;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
         }
-        
 
-        .modal-content {
-            background: rgba(0, 255, 157, 0.3);
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 0 30px rgba(0, 255, 157, 0.4);
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .modal-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
         .close-modal {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            color: var(--primary-green);
+            color: #00ff00;
+            font-size: 2rem;
             cursor: pointer;
-            font-size: 1.5rem;
+            transition: all 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .about {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .social-links-profile {
+                justify-content: center;
+            }
+            .award-grid::before {
+                left: 20px;
+            }
+
+            .award-card {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+            }
+
+            .award-card::before {
+                left: -35px !important;
+            }
+
+            .award-card::after {
+                left: -15px !important;
+            }
+        }
+
+        h1, h2, h3 {
+            background: linear-gradient(90deg, #00ff00, #00ffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* BG Animation */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Roadmap styles */
+        .roadmap {
+            padding: 4rem 2rem;
+        }
+
+        .roadmap h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .roadmap-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .roadmap-item {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            width: 200px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+
+        .roadmap-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .roadmap-item:hover .roadmap-hover-content {
+            display: block;
+        }
+
+        .roadmap-hover-content {
+            display: none;
+            position: absolute;
+            top: -150px; /* Располагаем сверху от элемента */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 1rem;
+            z-index: 1;
+            width: 300px;
+            text-align: left;
+        }
+
+        .roadmap-hover-content img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-hover-content p {
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <canvas id="particles"></canvas>
+
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="logo">
+            <img src="../static/logo.png" alt="Logo" class="logo">
             <span class="logo-text">Leafage</span>
         </div>
     </header>
 
     <main>
         <section class="about" data-aos="fade-up" data-aos-duration="1000">
-            <img src="profile.jpg" alt="Profile" class="profile-image">
+            <img src="../static/profile.jpg" alt="Профиль" class="profile-image">
             <div class="about-content">
-                <h1>Hi, I'm <span style="color: var(--primary-green)">Levanyuk Nikita</span></h1>
-                <p>I work with neural networks, big data, and simple but useful applications</p>   
-                <p>The experience is calculated by walking couples in the KCPT</p> 
-                <h2>Not a Leafage CEO</h2>            
+                <h1>Привет, я <span style="color: var(--primary-green)">Леванюк Никита</span></h1>
+                <p>Я работаю с нейросетями, большими данными и простыми, но полезными приложениями</p>
                 <div class="social-links-profile">
-                    <a href="https://github.com/N1k3YB" target="_blank" class="social-link"><img src="ghlogo.png" class="link-logos"></a>
-                    <a href="https://vk.com/n1k3y" target="_blank" class="social-link"><img src="vklogo.png" class="link-logos"></a>
-                    <a href="https://t.me/n1k3y" target="_blank" class="social-link"><img src="tglogo.png" class="link-logos"></a>
+                    <a href="https://github.com/N1k3YB" target="_blank" class="social-link"><img src="../static/ghlogo.png" class="link-logos"></a>
+                    <a href="https://vk.com/n1k3y" target="_blank" class="social-link"><img src="../static/vklogo.png" class="link-logos"></a>
+                    <a href="https://t.me/n1k3y" target="_blank" class="social-link"><img src="../static/tglogo.png" class="link-logos"></a>
                 </div>
             </div>
         </section>
 
-        <section class="skills" data-aos="fade-up">
-            <h2>Working with</h2>
+        <section class="skills" data-aos="fade-up" data-aos-duration="1000">
+            <h2>Языки Программирования</h2>
             <div class="skills-grid">
-                <div class="skill-card">GPT-2 model</div>
-                <div class="skill-card">Gemini API</div>
-                <div class="skill-card">Suno music model</div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">Python</div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">HTML5/CSS3</div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">JavaScript</div>
             </div>
         </section>
 
-        <section class="projects" data-aos="fade-up">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project-card" onclick="showModal('project1')">
-                    <img src="kcptAlogo.jpeg" alt="Project 1" class="project-image">
-                    <div class="project-info">
-                        <h3>KCPTAssistAnt</h3>
-                        <p>A telegram bot designed to optimize the search for information about the college</p>
+        <section class="roadmap" data-aos="fade-up" data-aos-duration="1000">
+            <h2>Проекты</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-item" onclick="showModal('project1')">
+                    KCPTAssistAnt
+                    <div class="roadmap-hover-content">
+                        <img src="../static/kcptAlogo.jpeg" alt="Проект A">
+                        <p>Телеграм-бот, разработанный для оптимизации поиска информации о колледже</p>
                     </div>
                 </div>
-                <div class="project-card" onclick="showModal('project2')">
-                    <img src="leafageGPTlogo.jpeg" alt="Project 2" class="project-image">
-                    <div class="project-info">
-                        <h3>LeafageGPT</h3>
-                        <p>Leafage's own neuro-network model for dialogs</p>
+                <div class="roadmap-item" onclick="showModal('project2')">
+                    LeafageGPT
+                    <div class="roadmap-hover-content">
+                        <img src="../static/leafageGPTlogo.jpeg" alt="Проект B">
+                        <p>Собственная нейросетевая модель Leafage с поддержкой конструктивных диалогов</p>
                     </div>
                 </div>
-                <div class="project-card" onclick="showModal('project3')">
-                    <img src="antonskylogo.jpeg" alt="Project 3" class="project-image">
-                    <div class="project-info">
-                        <h3>AntonskyVD</h3>
-                        <p>Leafage's own neuro-network model for make pictures</p>
+                <div class="roadmap-item" onclick="showModal('project3')">
+                    AntonskyVD
+                    <div class="roadmap-hover-content">
+                        <img src="../static/antonskylogo.jpeg" alt="Проект C">
+                        <p>Приложение, разработанное Leafage, включающее в себя множество API для обработки и создания изображений</p>
+                    </div>
+                </div>
+                <div class="roadmap-item" onclick="showModal('project4')">
+                    Сайт LeafageGPT
+                    <div class="roadmap-hover-content">
+                        <img src="../static/leafageGPTsite.png" alt="Проект D">
+                        <p>Созданный за кратчайшие сроки сайт для показа возможностей LeafageGPT</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="awards" data-aos="fade-up" >
-            <h2>Awards</h2>
+        <section class="awards" data-aos="fade-up" data-aos-duration="1000">
+            <h2>Награды</h2>
             <div class="award-grid">
-                <div class="award-card" onclick="showModal('award1')">
-                    <h3>Professionals Tyumen' region</h3>
+                <div class="award-card" onclick="showModal('award1')" data-aos="fade-right">
+                    <h3>Профессионалы Тюменской области</h3>
                     <p>2024</p>
-                    <p>2nd place</p>
+                    <p>На региональном чемпионате "Профессионалы" в области "Большие данные и нейронные сети" было получено почетное второе место, демонстрирующее высокий уровень профессионализма в работе с современными технологиями.</p>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials" data-aos="fade-up">
-            <h2>Reviews</h2>
+        <section class="testimonials" data-aos="fade-up" data-aos-duration="1000">
+            <h2>Отзывы</h2>
             <div class="testimonial-container">
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="testimonial-header">
-                        <img src="keks.jpg" alt="Avatar" class="testimonial-avatar">
+                        <img src="../static/keks.jpg" alt="Аватар" class="testimonial-avatar">
                         <div>
                             <h3>k3ksoff</h3>
-                            <p>Leafage CEO</p>
+                            <p>CEO Leafage</p>
                         </div>
                     </div>
-                    <p>"An excellent specialist, performs all tasks on time and efficiently!"</p>
+                    <p>"Отличный специалист, выполняет все задачи вовремя и эффективно!"</p>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-header">
-                        <img src="chijik.jpg" alt="Avatar" class="testimonial-avatar">
+                        <img src="../static/chijik.jpg" alt="Аватар" class="testimonial-avatar">
                         <div>
                             <h3>IR4jeck_ru</h3>
-                            <p>Leafage CEO</p>
+                            <p>CEO Leafage</p>
                         </div>
                     </div>
-                    <p>"Professional in his work field, I recommend!"</p>
+                    <p>"Профессионал в своей области, рекомендую!"</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <h1></h1>
         <div class="social-links">
             <a href="https://github.com/N1k3YB" target="_blank" class="social-link">GitHub</a>
             <a href="https://vk.com/n1k3y" target="_blank" class="social-link">VK</a>
             <a href="https://t.me/n1k3y" target="_blank" class="social-link">Telegram</a>
         </div>
-        <p>Copyright © 2024 Leafage</p>
-        <p>All rights reserved</p>
+        <p>© 2024 Leafage</p>
+        <p>Все права защищены</p>
     </footer>
 
     <div class="modal" id="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">×</span>
+            <button class="close-modal" onclick="closeModal()">×</button>
             <div id="modal-content"></div>
         </div>
     </div>
 
     <script>
         AOS.init({
-            duration: 1000, 
-            once: false 
+            duration: 1000,
+            once: true,
+            mirror: true
         });
+
+        const modalContent = {
+            project1: {
+                img: '../static/kcptA.png',
+                title: 'KCPTAssistAnt Telegram-Бот',
+                description: `<div>
+                                <h3>Телеграм бот, разработанный специально для Колледжа цифровых и педагогических технологий в Тюмени.</h3>
+                                <ul>Основные возможности включают:
+                                <li>• Упрощенный поиск информации для абитуриентов
+                                <li>• Система личного кабинета студента с авторизацией
+                                <li>• ИИ-чат на базе LeafageGPT
+                                <li>• Автоматическое обновление расписания
+                                <li>• Интеграция с системами колледжа
+                                </ul>
+                            </div>`
+            },
+            project2: {
+                img: '../static/leafageGPT.png',
+                description: `<div>
+                                <h3>LeafageGPT - это инновационная модель разговорного чат-бота на базе GPT-2.</h3>
+                                <ul>Ключевые особенности:
+                                    <li>• Естественное и контекстно-зависимое взаимодействие
+                                    <li>• Персонализированные ответы
+                                    <li>• Адаптивное обучение
+                                    <li>• Многоязычная поддержка
+                                    <li>• Интеграция с различными платформами
+                                    </li>
+                                </ul>
+                            </div>`
+            },
+            project3: {
+                img: '../static/antonsky.jpg',
+                description: `<div>
+                                <h3>Antonsky Visual Designer - универсальный ИИ-инструмент для работы с изображениями.</h3>
+                                <ul>Возможности:
+                                    <li>• Генерация изображений по текстовому описанию
+                                    <li>• Увеличение разрешения без потери качества
+                                    <li>• Автоматическое удаление фона
+                                    <li>• Улучшение качества фотографий
+                                    <li>• Стилизация изображений
+                                    </li>
+                                </ul>
+                            </div>`
+            },
+            project4: {
+                img: '../static/leafagegptSite.png',
+                description: `<div>
+                                <h3>Современный веб-сайт для демонстрации возможностей LeafageGPT.</h3>
+                                <ul>Особенности:
+                                    <li>• Интерактивный интерфейс
+                                    <li>• Демонстрационный чат с LeafageGPT
+                                </ul>
+                            </div>`
+            },
+            award1: {
+                img: '../static/pro2024.png',
+                description: `<div>
+                                <h3>Достижение в региональном чемпионате "Профессионалы":</h3>
+                                <ul>
+                                    <li>• Второе место в категории "Большие данные и нейронные сети"
+                                    <li>• Демонстрация практических навыков в работе с ИИ
+                                    <li>• Решение реальных бизнес-задач
+                                    <li>• Разработка инновационных решений
+                                    <li>• Признание профессионального сообщества
+                                    </li>
+                                </ul>
+                            </div>`
+            }
+        };
 
         function showModal(id) {
             const modal = document.getElementById('modal');
             const content = document.getElementById('modal-content');
-            
-            const modalContent = {
-                project1: {
-                    img: 'kcptA.png',
-                    title: 'KCPTAssistAnt Telegram-Bot',
-                    description: 'A digital platform for the College of Digital and Pedagogical Technologies in Tyumen, featuring a simplified information search for applicants, a student personal account system with authorization, and a chatbot powered by LeafageGPT.'
-                },
-                project2: {
-                    img: 'leafageGPT.png',
-                    title: 'LeafageGPT',
-                    description: 'LeafageGPT is a conversational chatbot model based on GPT-2, designed to deliver natural and context-aware interactions. Tailored for diverse use cases, it excels in personalized responses, adaptive learning, and seamless communication, making it ideal for educational, customer service, and virtual assistant applications.'
-                },
-                project3: {
-                    img: 'antonsky.jpg',
-                    title: 'AntonskyVD',
-                    description: 'Antonsky Visual Designer is a universal AI tool for creating, improving and editing images, combining image generation based on a text description, increasing the resolution of photos without loss of quality and automatic background removal in one intuitive process.'
-                },
-                award1: {
-                    img: 'pro2024.png',
-                    title: 'Proffessionals Tyumen region',
-                    description: 'I took the second place in the regional championship "Professionals" in the field of "Big data and neural networks"'
-                }
-            };
+            const modalData = modalContent[id];
 
             content.innerHTML = `
-                <img src="${modalContent[id].img}" alt="Modal Image">
-                <h2>${modalContent[id].title}</h2>
-                <p>${modalContent[id].description}</p>
+                <img src="${modalData.img}" alt="${modalData.title}">
+                ${modalData.description}
             `;
-            
-            modal.style.display = 'block';
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
             if (event.target === modal) {
-                modal.style.display = 'none';
+                closeModal();
             }
         }
+
+        // Добавляем плавную анимацию для хедера при скролле
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            const header = document.querySelector('header');
+
+            if (st > lastScrollTop) {
+                // Скролл вниз
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Скролл вверх
+                header.style.transform = 'translateY(0)';
+            }
+
+            // Добавляем прозрачность при скролле
+            const scrolled = window.scrollY > 100;
+            header.style.background = scrolled ?
+                'rgba(0, 0, 0, 0.8)' :
+                'rgba(0, 0, 0, 0.4)';
+
+            lastScrollTop = st <= 0 ? 0 : st;
+        });
+
+        // Анимация частиц
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()';
+
+        // Примеры кода для каждого языка
+        const sampleCodes = {
+            'Python': [
+                '# LeafageAI Application - v2.0 (AI Enhanced)',
+                '',
+                'import time',
+                'import random',
+                'import os',
+                'import tensorflow as tf',
+                'from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification',
+                'import logging',
+                '',
+                '# Configure logging',
+                "logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')",
+                '',
+                '# Initialize sentiment analysis pipeline',
+                'try:',
+                '    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")',
+                '    model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")',
+                "    sentiment_pipeline = pipeline('sentiment-analysis', tokenizer=tokenizer, model=model)",
+                '    logging.info("Sentiment analysis pipeline loaded successfully.")',
+                'except Exception as e:',
+                'logging.error(f"Error loading sentiment analysis pipeline: {e}")',
+                '    sentiment_pipeline = None',
+                '',
+                '',
+                'def generate_unique_id():',
+                '    return f"{time.time()}-{random.randint(1000, 9999)}"',
+                '',
+                'class UserProfile:',
+                '    def __init__(self, name, email, user_id=None):',
+                '        self.name = name',
+                '        self.email = email',
+                '        self.user_id = user_id if user_id else generate_unique_id()',
+                '        self.creation_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())',
+                '',
+                '    def display_profile(self):',
+                '        print(f"User ID: {self.user_id}")',
+                '        print(f"Name: {self.name}")',
+                '        print(f"Email: {self.email}")',
+                '        print(f"Creation Date: {self.creation_date}")',
+                '',
+                'class Task:',
+                '    def __init__(self, description, task_id=None):',
+                '         self.description = description',
+                '         self.make_fun_with_leafageai_broou',
+            ],
+            'HTML5/CSS3': [
+                '<!DOCTYPE html>',
+                '<html lang="en">',
+                '<head>',
+                '    <meta charset="UTF-8">',
+                '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+                '    <title>LeafageAI</title>',
+                '    <style>',
+                '        body { font-family: sans-serif; margin: 20px; }',
+                '        h1 { color: #333; }',
+                '        p { line-height: 1.6; }',
+                '        ul { list-style-type: square; padding-left: 20px; }',
+                '        .container { max-width: 800px; margin: 0 auto; }',
+                '        footer { margin-top: 30px; text-align: center; color: #777; font-size: 0.9em; }',
+                '    </style>',
+                '</head>',
+                '<body>',
+                '    <div class="container">',
+                '        <h1>Welcome to LeafageAI</h1>',
+                '        <p>LeafageAI is an innovative AI solution designed to enhance your daily tasks and workflows. We leverage cutting-edge technologies to provide intelligent solutions.</p>',
+                '        ',
+                '        <h2>Key Features</h2>',
+                '        <ul>',
+                '            <li>Advanced AI algorithms</li>',
+                '            <li>User-friendly interface</li>',
+                '            <li>Personalized solutions</li>',
+                '            <li>Continuous updates and improvements</li>',
+                '        </ul>',
+                '',
+                '        <h2>What We Offer</h2>',
+                '        <p>Our services range from data analysis to natural language processing, helping you to achieve more in less time. Explore the possibilities with LeafageAI.</p>',
+                '        ',
+                '        <p>Start using our services today and experience a new level of productivity.</p>',
+                '        ',
+                '        <h2>Learn More</h2>',
+                '        <p>Visit our official website: <a href="https://leafagegpt.ru">leafagegpt.ru</a></p>',
+                '        ',
+                '        <footer>',
+                '          © 2025 LeafageAI',
+                '        </footer>',
+                '    </div>',
+                '</body>',
+                '</html>'
+            ],
+            'JavaScript': [
+                '',
+                "document.addEventListener('DOMContentLoaded', function() {",
+                "    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {",
+                "        anchor.addEventListener('click', function (e) {",
+                '            e.preventDefault();',
+                '',
+                "            document.querySelector(this.getAttribute('href')).scrollIntoView({",
+                "                behavior: 'smooth'",
+                '            });',
+                '        });',
+                '    });',
+                '',
+                '',
+                "    const header = document.querySelector('h1');",
+                '    const initialHeaderText = header.textContent;',
+                '    let isOriginalText = true;',
+                '',
+                "    header.addEventListener('mouseover', function() {",
+                '      if(isOriginalText) {',
+                '        header.textContent = "Explore AI Power!";',
+                '        isOriginalText = false;',
+                '      } else {',
+                '        header.textContent = initialHeaderText;',
+                '        isOriginalText = true;',
+                '      }',
+                '',
+                '    });',
+                '',
+                '',
+                "    const contactForm = document.querySelector('#contact-form');",
+                '    if(contactForm) {',
+                "      contactForm.addEventListener('submit', function(event) {",
+                '        const emailInput = contactForm.querySelector(\'input[type="email"]\');',
+                '        if (!emailInput.value || !validateEmail(emailInput.value)) {',
+                "            alert('Please enter a valid email address.');",
+                '            event.preventDefault();',
+                '        }',
+                '      });',
+                '    }',
+                '    ',
+                '    function validateEmail(email) {',
+                '        const re = /^[^\s@]+@[^\s@]+\\.[^\\s@]+$/;',
+                '        return re.test(String(email).toLowerCase());',
+                '    }',
+                '',
+                '',
+                "    const footer = document.querySelector('footer');",
+                '    if(footer) {',
+                "      footer.addEventListener('click', function() {",
+                "        footer.textContent = 'LeafageAI is always improving!';",
+                '        setTimeout(() => {',
+                "            footer.textContent = '© 2024 Leafage. Все права защищены';",
+                '        }, 2000);',
+                '      });',
+                '    }',
+                '});',
+                ''
+            ]
+        };
+
+        class Particle {
+            constructor() {
+                this.reset();
+                this.targetX = null;
+                this.targetY = null;
+                this.isPartOfCode = false;
+                this.isPartOfModal = false;
+                this.char = this.getRandomChar();
+                this.lastCharUpdate = Date.now();
+                this.charUpdateInterval = Math.random() * 100 + 50;
+                this.modalChar = '';
+                this.imagePixel = null;
+            }
+
+            getRandomChar() {
+                return matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = (Math.random() - 0.5) * 3;
+                this.speedY = (Math.random() - 0.5) * 3;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.isPartOfCode = false;
+                this.isPartOfModal = false;
+            }
+
+            update() {
+                const now = Date.now();
+                if (now - this.lastCharUpdate > this.charUpdateInterval && !this.isPartOfCode && !this.isPartOfModal) {
+                    this.char = this.getRandomChar();
+                    this.lastCharUpdate = now;
+                }
+
+                if ((this.isPartOfCode || this.isPartOfModal) && this.targetX !== null && this.targetY !== null) {
+                    const dx = this.targetX - this.x;
+                    const dy = this.targetY - this.y;
+                    this.x += dx * 0.1;  // Slower movement for smoother animation
+                    this.y += dy * 0.1;
+                    this.opacity = 1;
+                } else {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = this.imagePixel ? `rgb(${this.imagePixel.r},${this.imagePixel.g},${this.imagePixel.b})` : '#00ff00';
+                ctx.globalAlpha = this.opacity;
+
+                if (this.isPartOfModal) {
+                    if (this.imagePixel) {
+                        ctx.fillRect(this.x, this.y, 2, 2);
+                    } else {
+                        ctx.font = '12px monospace';
+                        ctx.fillText(this.modalChar, this.x, this.y);
+                    }
+                } else if (this.isPartOfCode && this.codeChar) {
+                    ctx.font = '12px monospace';
+                    ctx.fillText(this.codeChar, this.x, this.y);
+                } else {
+                    ctx.font = '10px monospace';
+                    ctx.fillText(this.char, this.x, this.y);
+                }
+            }
+        }
+
+        // State management
+        let currentDisplayedCode = null;
+        let codeDisplayTimeout = null;
+        let disperseTimeout = null;
+        let isCodeVisible = false;
+
+        // Update event listeners for skill cards
+        document.querySelectorAll('.skill-card').forEach(card => {
+            let hoverStartTime;
+
+            card.addEventListener('mouseenter', () => {
+                const language = card.textContent.trim();
+                hoverStartTime = Date.now();
+
+                // Clear any existing timeouts
+                if (codeDisplayTimeout) clearTimeout(codeDisplayTimeout);
+                if (disperseTimeout) clearTimeout(disperseTimeout);
+
+                // If code is already visible, switch immediately
+                if (isCodeVisible) {
+                    currentDisplayedCode = language;
+                    assignParticlesToCode(sampleCodes[language]);
+
+                    // Set new disperse timeout
+                    disperseTimeout = setTimeout(() => {
+                        releaseParticles();
+                        isCodeVisible = false;
+                    }, 1000);
+                } else {
+                    // Wait 1 second before showing code
+                    codeDisplayTimeout = setTimeout(() => {
+                        currentDisplayedCode = language;
+                        isCodeVisible = true;
+                        assignParticlesToCode(sampleCodes[language]);
+
+                        // Set disperse timeout
+                        disperseTimeout = setTimeout(() => {
+                            releaseParticles();
+                            isCodeVisible = false;
+                        }, 1000);
+                    }, 1000);
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Clear timeouts if mouse leaves before code is shown
+                if (codeDisplayTimeout) {
+                    clearTimeout(codeDisplayTimeout);
+                }
+
+                // Don't clear disperse timeout - let it complete naturally
+            });
+        });
+
+        function assignParticlesToCode(code) {
+            const lines = code;
+            const lineHeight = Math.min(Math.floor(canvas.height / (lines.length + 5)), 20);
+            const fontSize = Math.min(lineHeight * 0.8, 16);
+            const startX = 20;
+            const startY = Math.max(50, (canvas.height - lines.length * lineHeight) / 2);
+
+            let particleIndex = 0;
+            lines.forEach((line, lineIndex) => {
+                [...line].forEach((char, charIndex) => {
+                    if (particleIndex < particles.length) {
+                        const particle = particles[particleIndex];
+                        particle.targetX = startX + charIndex * (fontSize * 0.6);
+                        particle.targetY = startY + lineIndex * lineHeight;
+                        particle.codeChar = char;
+                        particle.isPartOfCode = true;
+                        particleIndex++;
+                    }
+                });
+            });
+        }
+
+        function releaseParticles() {
+            particles.forEach(particle => {
+                particle.targetX = null;
+                particle.targetY = null;
+                particle.isPartOfCode = false;
+                particle.codeChar = '';
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Initialize particles
+        const particles = Array.from({ length: 1600 }, () => new Particle());
+
+        // Start animation
+        animate();
     </script>
 </body>
 </html>
