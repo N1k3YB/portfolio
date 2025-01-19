@@ -36,38 +36,6 @@
             list-style: none;
             padding-left: 25px;
         }
-        /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(0, 255, 0, 0.1);
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            height: 40px;
-            filter: drop-shadow(0 0 10px #00ff00);
-        }
-
-        .logo-text {
-            font-size: 2rem;
-            background: linear-gradient(90deg, #00ff00, #00ffff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-        }
 
         /* Main content */
         main {
@@ -515,14 +483,6 @@
 </head>
 <body>
     <canvas id="particles"></canvas>
-
-    <header>
-        <div class="logo-container">
-            <img src="./static/logo.png" alt="Logo" class="logo">
-            <span class="logo-text">Leafage</span>
-        </div>
-    </header>
-
     <main>
         <section class="about" data-aos="fade-up" data-aos-duration="1000">
             <img src="./static/profile.jpg" alt="Профиль" class="profile-image">
